@@ -5,7 +5,7 @@ import {fileURLToPath} from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const moduleJsonPath = path.join(__dirname, 'modules.json');
+const moduleJsonPath = path.join(__dirname, 'extensions.json');
 const moduleJson = JSON.parse(fs.readFileSync(moduleJsonPath, 'utf8'));
 
 async function fetchJson(url) {
@@ -24,5 +24,5 @@ for (const moduleUrl of moduleJson) {
     }
 }
 
-const compiledPath = path.join(__dirname, '..', 'Compiled', 'container.json');
+const compiledPath = path.join(__dirname, '..', 'compiled', 'container.json');
 fs.writeFileSync(compiledPath, JSON.stringify(containers, null, 2));
